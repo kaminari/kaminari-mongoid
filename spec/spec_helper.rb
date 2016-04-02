@@ -16,6 +16,8 @@ require 'capybara/rspec'
 require 'database_cleaner'
 
 require 'fake_app/rails_app'
+require 'fake_app/mongoid/config'
+require 'fake_app/mongoid/models'
 
 require 'rspec/rails'
 
