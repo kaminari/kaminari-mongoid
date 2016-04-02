@@ -1,3 +1,33 @@
 language: ruby
+
 rvm:
-  - 2.2.2
+  - 2.0.0
+  - 2.1.8
+  - 2.2.4
+  - 2.3.0
+  - ruby-head
+  - jruby
+  - jruby-head
+  - rbx-2
+
+gemfile:
+  - gemfiles/mongoid_30.gemfile
+  - gemfiles/mongoid_31.gemfile
+  - gemfiles/mongoid_40.gemfile
+  - gemfiles/mongoid_50.gemfile
+
+sudo: false
+
+services: mongodb
+
+script: "bundle exec rake spec"
+
+cache: bundler
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby
+    - rvm: jruby-head
+    - rvm: rbx-2
+  fast_finish: true
