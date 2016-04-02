@@ -2,10 +2,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.join(Gem.loaded_specs['kaminari'].gem_dir, 'spec'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-begin
-  require 'rails'
-rescue LoadError
-end
+require 'rails'
 
 require 'bundler/setup'
 Bundler.require
@@ -13,11 +10,9 @@ Bundler.require
 require 'capybara/rspec'
 require 'database_cleaner'
 
-if defined? Rails
-  require 'fake_app/rails_app'
+require 'fake_app/rails_app'
 
-  require 'rspec/rails'
-end
+require 'rspec/rails'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
