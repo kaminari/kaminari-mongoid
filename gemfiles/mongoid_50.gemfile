@@ -11,7 +11,7 @@ else
 end
 
 group :development, :test do
-  gem 'database_cleaner', git: 'git@github.com:DatabaseCleaner/database_cleaner.git'
+  gem 'database_cleaner', '~> 1.5.1'
 end
 
 platforms :mri do
