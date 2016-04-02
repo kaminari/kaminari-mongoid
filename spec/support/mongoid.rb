@@ -4,4 +4,4 @@ RSpec.configure do |config|
     Mongoid.logger.level = Logger::INFO
     Mongo::Logger.logger.level = Logger::INFO if defined?(Mongo)
   end
-end if defined? Mongoid
+end
