@@ -7,6 +7,11 @@ require 'rails'
 require 'bundler/setup'
 Bundler.require
 
+# for kaminari view test
+ActiveSupport.on_load :action_controller do
+  prepend_view_path File.join(Gem.loaded_specs['kaminari'].gem_dir, 'spec/fake_app/views')
+end
+
 require 'capybara/rspec'
 require 'database_cleaner'
 
