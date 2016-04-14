@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Kaminari::MongoidCriteriaMethods do
+describe Kaminari::Mongoid::MongoidCriteriaMethods do
   describe "#total_count" do
     before do
       2.times {|i| User.create!(:salary => i) }
@@ -14,7 +14,7 @@ describe Kaminari::MongoidCriteriaMethods do
   end
 end
 
-describe Kaminari::MongoidExtension do
+describe Kaminari::Mongoid::MongoidExtension do
   before(:each) do
     41.times do
       User.create!({:salary => 1})
