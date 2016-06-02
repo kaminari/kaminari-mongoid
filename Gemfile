@@ -5,4 +5,4 @@ gemspec
 
 gem 'database_cleaner', git: 'git@github.com:DatabaseCleaner/database_cleaner.git'
 
-gem 'kaminari'
+gem 'kaminari', github: 'amatsuda/kaminari'
