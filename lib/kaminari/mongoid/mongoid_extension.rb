@@ -21,7 +21,7 @@ module Kaminari
             super
             kls.send(:include, Kaminari::Mongoid::MongoidExtension::Document.dup)
           end
-        end if Mongoid::VERSION < '5.0.0'
+        end if ::Mongoid::VERSION < '5.0.0'
       end
     end
   end
