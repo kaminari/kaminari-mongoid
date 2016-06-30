@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #FIXME bundle GH branch for now
-gem 'kaminari', github: 'amatsuda/kaminari', branch: 'extract_adapters'
+gem 'kaminari', github: 'amatsuda/kaminari'
 
 gem 'railties', '~> 4.0'
 gem 'mongoid', '~> 5.1.0'
