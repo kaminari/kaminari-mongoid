@@ -136,20 +136,26 @@ describe Kaminari::Mongoid::MongoidExtension do
 
     context "with database:", :if => Mongoid::VERSION >= '3' do
       before :all do
-        User.with(:database => "default_db").delete_all
-        User.with(:database => "other_db").delete_all
-        15.times { User.with(:database => "default_db").create!(:salary => 1) }
-        10.times { User.with(:database => "other_db").create!(:salary => 1) }
+        User.with(:database => 'default_db', &:delete_all)
+        User.with(:database => 'other_db', &:delete_all)
+        15.times { User.with(:database => 'default_db') {|u| u.create!(:salary => 1) } }
+        10.times { User.with(:database => 'other_db') {|u| u.create!(:salary => 1) } }
       end
 
       context "default_db" do
-        subject { User.with(:database => "default_db").order_by(:artist.asc).page(1) }
-        its(:total_count) { should == 15 }
+        specify do
+          User.with(:database => 'default_db') do |u|
+            u.order_by(:artist.asc).page(1).total_count.should == 15
+          end
+        end
       end
 
       context "other_db" do
-        subject { User.with(:database => "other_db").order_by(:artist.asc).page(1) }
-        its(:total_count) { should == 10 }
+        specify do
+          User.with(:database => 'other_db') do |u|
+            u.order_by(:artist.asc).page(1).total_count.should == 10
+          end
+        end
       end
     end
   end
