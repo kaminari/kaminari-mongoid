@@ -18,6 +18,7 @@ gemfile:
   - gemfiles/mongoid_40.gemfile
   - gemfiles/mongoid_50.gemfile
   - gemfiles/mongoid_51.gemfile
+  - gemfiles/mongoid_60.gemfile
 
 sudo: false
 
