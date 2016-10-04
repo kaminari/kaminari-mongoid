@@ -27,6 +27,11 @@ script: "bundle exec rake spec"
 cache: bundler
 
 matrix:
+  exclude:
+    - rvm: 2.0.0
+      gemfile: gemfiles/mongoid_60.gemfile
+    - rvm: 2.1.10
+      gemfile: gemfiles/mongoid_60.gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby
