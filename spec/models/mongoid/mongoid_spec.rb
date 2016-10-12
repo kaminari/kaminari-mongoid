@@ -22,7 +22,7 @@ describe Kaminari::Mongoid::MongoidExtension do
     end
   end
 
-  describe 'max_scan', :if => Mongoid::VERSION >= '3' do
+  describe 'max_scan' do
     context 'less than total' do
       context 'page 1' do
         subject { User.max_scan(20).page 1 }
@@ -112,11 +112,7 @@ describe Kaminari::Mongoid::MongoidExtension do
     end
 
     shared_examples 'complete valid pagination' do
-      if Mongoid::VERSION > '3.0.0'
-        its(:selector) { should == {'salary' => 1} }
-      else
-        its(:selector) { should == {:salary => 1} }
-      end
+      its(:selector) { should == {'salary' => 1} }
       its(:current_page) { should == 2 }
       its(:prev_page) { should == 1 }
       its(:next_page) { should be_nil }
@@ -135,7 +131,7 @@ describe Kaminari::Mongoid::MongoidExtension do
       it_should_behave_like 'complete valid pagination'
     end
 
-    context "with database:", :if => Mongoid::VERSION >= '3' do
+    context 'with database:' do
       before :all do
         User.with(:database => 'default_db', &:delete_all)
         User.with(:database => 'other_db', &:delete_all)
