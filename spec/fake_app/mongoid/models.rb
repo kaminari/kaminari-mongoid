@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class User
   include ::Mongoid::Document
   if Mongoid::VERSION >= '4.0.0'

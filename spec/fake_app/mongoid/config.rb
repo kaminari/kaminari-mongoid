@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Ensure we use 'syck' instead of 'psych' in 1.9.2
 # RubyGems >= 1.5.0 uses 'psych' on 1.9.2, but
 # Psych does not yet support YAML 1.1 merge keys.

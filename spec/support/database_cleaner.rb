@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 DatabaseCleaner[:mongoid].strategy = :truncation
 
 RSpec.configure do |config|

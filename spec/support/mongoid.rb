@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.configure do |config|
   config.before :suite do
     # Mongoid 5 is very noisy at DEBUG level by default
