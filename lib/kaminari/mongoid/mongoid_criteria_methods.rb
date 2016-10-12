@@ -7,8 +7,8 @@ module Kaminari
         super
       end
 
-      def entry_name
-        model_name.human.downcase
+      def entry_name(options = {})
+        model_name.human(options.reverse_merge(default: model_name.human.pluralize(options[:count])))
       end
 
       def limit_value #:nodoc:
