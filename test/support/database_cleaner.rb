@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 DatabaseCleaner[:mongoid].strategy = :truncation
 
-RSpec.configure do |config|
-  config.before :suite do
-    DatabaseCleaner.clean_with :truncation
+class ActiveSupport::TestCase
+  class << self
+    def startup
+      DatabaseCleaner.clean_with :truncation
+      super
+    end
   end
-  config.before :each do
+
+  setup do
     DatabaseCleaner.start
   end
-  config.after :each do
+
+  teardown do
     DatabaseCleaner.clean
   end
 end

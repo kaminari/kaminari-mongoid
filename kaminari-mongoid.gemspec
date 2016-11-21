@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'mongoid'
   spec.add_development_dependency 'rails'
-  spec.add_development_dependency 'rspec-rails', '~> 2.14.1'
+  spec.add_development_dependency 'test-unit-rails'
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'database_cleaner'
   spec.add_development_dependency 'rr'
