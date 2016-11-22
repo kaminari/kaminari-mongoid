@@ -14,6 +14,6 @@ Mongoid.configure do |config|
   if Mongoid::VERSION >= '5.0.0'
     config.connect_to 'kaminari_test'
   else
-    config.sessions = {:default => {:hosts => ['0.0.0.0:27017'], :database => 'kaminari_test'}}
+    config.sessions = {default: {hosts: ['0.0.0.0:27017'], database: 'kaminari_test'}}
   end
 end

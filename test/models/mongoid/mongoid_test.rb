@@ -4,11 +4,11 @@ require 'test_helper'
 class MongoidCriteriaMethodsTest < ActiveSupport::TestCase
   sub_test_case '#total_count' do
     setup do
-      2.times {|i| User.create!(:salary => i) }
+      2.times {|i| User.create!(salary: i) }
     end
 
     test 'it should reset total_count memoization when the scope is cloned' do
-      assert_equal 1, User.page.tap(&:total_count).where(:salary => 1).total_count
+      assert_equal 1, User.page.tap(&:total_count).where(salary: 1).total_count
     end
   end
 end
@@ -16,7 +16,7 @@ end
 class MongoidExtensionTest < ActiveSupport::TestCase
   setup do
     41.times do
-      User.create!({:salary => 1})
+      User.create!({salary: 1})
     end
   end
 
@@ -126,29 +126,29 @@ class MongoidExtensionTest < ActiveSupport::TestCase
     end
 
     test 'with criteria before' do
-      assert_complete_valid_pagination User.where(:salary => 1).page(2)
+      assert_complete_valid_pagination User.where(salary: 1).page(2)
     end
 
     test 'with criteria after' do
-      assert_complete_valid_pagination User.page(2).where(:salary => 1)
+      assert_complete_valid_pagination User.page(2).where(salary: 1)
     end
 
     sub_test_case 'with database:' do
       setup do
-        User.with(:database => 'default_db', &:delete_all)
-        User.with(:database => 'other_db', &:delete_all)
-        15.times { User.with(:database => 'default_db') {|u| u.create!(:salary => 1) } }
-        10.times { User.with(:database => 'other_db') {|u| u.create!(:salary => 1) } }
+        User.with(database: 'default_db', &:delete_all)
+        User.with(database: 'other_db', &:delete_all)
+        15.times { User.with(database: 'default_db') {|u| u.create!(salary: 1) } }
+        10.times { User.with(database: 'other_db') {|u| u.create!(salary: 1) } }
       end
 
       test 'default_db' do
-        User.with(:database => 'default_db') do |u|
+        User.with(database: 'default_db') do |u|
           assert_equal 15, u.order_by(:artist.asc).page(1).total_count
         end
       end
 
       test 'other_db' do
-        User.with(:database => 'other_db') do |u|
+        User.with(database: 'other_db') do |u|
           assert_equal 10, u.order_by(:artist.asc).page(1).total_count
         end
       end
@@ -170,11 +170,11 @@ class MongoidExtensionTest < ActiveSupport::TestCase
   sub_test_case '#page in embedded documents' do
     setup do
       @mongo_developer = MongoMongoidExtensionDeveloper.new
-      @mongo_developer.frameworks.new(:name => 'rails', :language => 'ruby')
-      @mongo_developer.frameworks.new(:name => 'merb', :language => 'ruby')
-      @mongo_developer.frameworks.new(:name => 'sinatra', :language => 'ruby')
-      @mongo_developer.frameworks.new(:name => 'cakephp', :language => 'php')
-      @mongo_developer.frameworks.new(:name => 'tornado', :language => 'python')
+      @mongo_developer.frameworks.new(name: 'rails', language: 'ruby')
+      @mongo_developer.frameworks.new(name: 'merb', language: 'ruby')
+      @mongo_developer.frameworks.new(name: 'sinatra', language: 'ruby')
+      @mongo_developer.frameworks.new(name: 'cakephp', language: 'php')
+      @mongo_developer.frameworks.new(name: 'tornado', language: 'python')
     end
 
     test 'page 1' do
@@ -190,7 +190,7 @@ class MongoidExtensionTest < ActiveSupport::TestCase
     end
 
     test 'with criteria after' do
-      frameworks = @mongo_developer.frameworks.page(1).per(2).where(:language => 'ruby')
+      frameworks = @mongo_developer.frameworks.page(1).per(2).where(language: 'ruby')
 
       assert_instance_of Mongoid::Criteria, frameworks
       assert_equal 1, frameworks.current_page
@@ -202,7 +202,7 @@ class MongoidExtensionTest < ActiveSupport::TestCase
     end
 
     test 'with criteria before' do
-      frameworks = @mongo_developer.frameworks.where(:language => 'ruby').page(1).per(2)
+      frameworks = @mongo_developer.frameworks.where(language: 'ruby').page(1).per(2)
 
       assert_instance_of Mongoid::Criteria, frameworks
       assert_equal 1, frameworks.current_page
