@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ronnie@dio.jp"]
 
   spec.summary       = 'Kaminari Mongoid adapter'
-  spec.description   = 'Kaminari Mongoid adapter'
+  spec.description   = 'kaminari-mongoid lets your Mongoid models be paginatable'
   spec.homepage      = 'https://github.com/kaminari/kaminari-mongoid'
   spec.license       = "MIT"
 
