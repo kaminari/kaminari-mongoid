@@ -21,7 +21,7 @@ And bundle.
 
 ## Usage
 
-See [Kaminari README](https://github.com/amatsuda/kaminari/blob/master/README.rdoc).
+See [Kaminari README](https://github.com/amatsuda/kaminari/blob/master/README.md).
 
 
 ## Contributing
