@@ -20,6 +20,10 @@ class MongoidExtensionTest < ActiveSupport::TestCase
     end
   end
 
+  teardown do
+    User.delete_all
+  end
+
   sub_test_case 'max_scan' do
     sub_test_case 'less than total' do
       test 'page 1' do
