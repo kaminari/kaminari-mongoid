@@ -13,8 +13,6 @@ ActiveSupport.on_load :action_controller do
   prepend_view_path File.join(Gem.loaded_specs['kaminari-core'].gem_dir, 'test/fake_app/views')
 end
 
-require 'database_cleaner'
-
 require 'fake_app/rails_app'
 require 'fake_app/mongoid/config'
 require 'fake_app/mongoid/models'

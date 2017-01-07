@@ -13,10 +13,6 @@ else
   gem 'mime-types', '2.99'
 end
 
-group :development, :test do
-  gem 'database_cleaner', '~> 1.5.1'
-end
-
 platforms :mri do
   gem 'test-unit' if RUBY_VERSION > '2.1.0'
 end
