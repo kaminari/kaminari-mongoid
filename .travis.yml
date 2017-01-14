@@ -9,7 +9,7 @@ rvm:
   - 2.3.3
   - 2.4.0
   - ruby-head
-  - jruby-9.1.5.0
+  - jruby-9.1.7.0
   - rbx-2
 
 gemfile:
@@ -34,7 +34,7 @@ matrix:
       gemfile: gemfiles/mongoid_60.gemfile
   allow_failures:
     - rvm: ruby-head
-    - rvm: jruby-9.1.5.0
+    - rvm: jruby-9.1.7.0
     - rvm: rbx-2
     # mongoid < 6 depends on activemodel < 5 that depends on json < 2 that currently doesn't support ruby 2.4
     - rvm: 2.4.0
