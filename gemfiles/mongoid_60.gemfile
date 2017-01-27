@@ -11,11 +11,7 @@ gem 'kaminari-actionview', github: 'kaminari/kaminari'
 gem 'railties', '~> 5.0'
 gem 'mongoid', '~> 6.0.0'
 
-if RUBY_VERSION > '1.9.3'
-  gem 'mime-types'
-else
-  gem 'mime-types', '2.99'
-end
+gem 'mime-types'
 
 platforms :rbx do
   gem 'rubysl', '~> 2.0'
