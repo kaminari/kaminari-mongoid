@@ -17,6 +17,7 @@ gemfile:
   - gemfiles/mongoid_50.gemfile
   - gemfiles/mongoid_51.gemfile
   - gemfiles/mongoid_60.gemfile
+  - gemfiles/mongoid_61.gemfile
 
 sudo: false
 
@@ -32,6 +33,10 @@ matrix:
       gemfile: gemfiles/mongoid_60.gemfile
     - rvm: 2.1.10
       gemfile: gemfiles/mongoid_60.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/mongoid_61.gemfile
+    - rvm: 2.1.10
+      gemfile: gemfiles/mongoid_61.gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-9.1.7.0
