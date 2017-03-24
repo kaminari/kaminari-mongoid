@@ -7,7 +7,7 @@ rvm:
   - 2.1.10
   - 2.2.6
   - 2.3.3
-  - 2.4.0
+  - 2.4.1
   - ruby-head
   - jruby-9.1.8.0
   - rbx-2
@@ -42,10 +42,10 @@ matrix:
     - rvm: jruby-9.1.8.0
     - rvm: rbx-2
     # mongoid < 6 depends on activemodel < 5 that depends on json < 2 that currently doesn't support ruby 2.4
-    - rvm: 2.4.0
+    - rvm: 2.4.1
       gemfile: gemfiles/mongoid_40.gemfile
-    - rvm: 2.4.0
+    - rvm: 2.4.1
       gemfile: gemfiles/mongoid_50.gemfile
-    - rvm: 2.4.0
+    - rvm: 2.4.1
       gemfile: gemfiles/mongoid_51.gemfile
   fast_finish: true
