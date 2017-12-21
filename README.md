@@ -1,4 +1,4 @@
-# Kaminari::Mongoid
+# Kaminari::Mongoid [![Build Status](https://travis-ci.org/kaminari/kaminari-mongoid.svg?branch=master)](https://travis-ci.org/kaminari/kaminari-mongoid)
 
 Kaminari Mongoid adapter.
 
