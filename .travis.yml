@@ -3,22 +3,22 @@ language: ruby
 before_install: gem update bundler
 
 rvm:
-  - 2.0.0
-  - 2.1.10
-  - 2.2.9
-  - 2.3.6
-  - 2.4.3
   - 2.5.0
+  - 2.4.3
+  - 2.3.6
+  - 2.2.9
+  - 2.1.10
+  - 2.0.0
   - ruby-head
   - jruby-9.1.15.0
   - rbx-2
 
 gemfile:
-  - gemfiles/mongoid_40.gemfile
-  - gemfiles/mongoid_50.gemfile
-  - gemfiles/mongoid_51.gemfile
-  - gemfiles/mongoid_60.gemfile
   - gemfiles/mongoid_61.gemfile
+  - gemfiles/mongoid_60.gemfile
+  - gemfiles/mongoid_51.gemfile
+  - gemfiles/mongoid_50.gemfile
+  - gemfiles/mongoid_40.gemfile
 
 sudo: false
 
@@ -30,29 +30,29 @@ cache: bundler
 
 matrix:
   exclude:
-    - rvm: 2.0.0
-      gemfile: gemfiles/mongoid_60.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/mongoid_51.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/mongoid_50.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/mongoid_40.gemfile
+    # mongoid < 6 depends on activemodel < 5 that depends on json < 2 that currently doesn't support ruby 2.4
+    - rvm: 2.4.3
+      gemfile: gemfiles/mongoid_51.gemfile
+    - rvm: 2.4.3
+      gemfile: gemfiles/mongoid_50.gemfile
+    - rvm: 2.4.3
+      gemfile: gemfiles/mongoid_40.gemfile
     - rvm: 2.1.10
-      gemfile: gemfiles/mongoid_60.gemfile
+      gemfile: gemfiles/mongoid_61.gemfile
     - rvm: 2.0.0
       gemfile: gemfiles/mongoid_61.gemfile
     - rvm: 2.1.10
-      gemfile: gemfiles/mongoid_61.gemfile
+      gemfile: gemfiles/mongoid_60.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/mongoid_60.gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-9.1.15.0
     - rvm: rbx-2
-    # mongoid < 6 depends on activemodel < 5 that depends on json < 2 that currently doesn't support ruby 2.4
-    - rvm: 2.4.3
-      gemfile: gemfiles/mongoid_40.gemfile
-    - rvm: 2.4.3
-      gemfile: gemfiles/mongoid_50.gemfile
-    - rvm: 2.4.3
-      gemfile: gemfiles/mongoid_51.gemfile
-    - rvm: 2.5.0
-      gemfile: gemfiles/mongoid_40.gemfile
-    - rvm: 2.5.0
-      gemfile: gemfiles/mongoid_50.gemfile
-    - rvm: 2.5.0
-      gemfile: gemfiles/mongoid_51.gemfile
   fast_finish: true
