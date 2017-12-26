@@ -8,6 +8,7 @@ rvm:
   - 2.2.9
   - 2.3.6
   - 2.4.3
+  - 2.5.0
   - ruby-head
   - jruby-9.1.15.0
   - rbx-2
@@ -47,5 +48,11 @@ matrix:
     - rvm: 2.4.3
       gemfile: gemfiles/mongoid_50.gemfile
     - rvm: 2.4.3
+      gemfile: gemfiles/mongoid_51.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/mongoid_40.gemfile
+    - rvm: 2.5.0
+      gemfile: gemfiles/mongoid_50.gemfile
+    - rvm: 2.5.0
       gemfile: gemfiles/mongoid_51.gemfile
   fast_finish: true
