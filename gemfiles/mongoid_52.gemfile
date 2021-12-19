@@ -8,9 +8,11 @@ end
 gem 'kaminari-core', github: 'kaminari/kaminari'
 gem 'kaminari-actionview', github: 'kaminari/kaminari'
 
-gem 'railties', '~> 6.1'
-gem 'mongoid', '~> 7.0.0'
+gem 'railties', '~> 4.0'
+gem 'mongoid', '~> 5.2.0'
 
 gem 'mime-types'
+
+gem 'nokogiri', RUBY_VERSION < '2.1' ? '~> 1.6.0' : '>= 1.7'
 
 gemspec :path => '../'

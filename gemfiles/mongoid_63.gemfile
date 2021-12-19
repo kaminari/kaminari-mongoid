@@ -8,8 +8,8 @@ end
 gem 'kaminari-core', github: 'kaminari/kaminari'
 gem 'kaminari-actionview', github: 'kaminari/kaminari'
 
-gem 'railties', '~> 6.1'
-gem 'mongoid', '~> 7.0.0'
+gem 'railties', '~> 5.2'
+gem 'mongoid', '~> 6.3.0'
 
 gem 'mime-types'
 
