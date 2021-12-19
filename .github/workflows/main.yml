@@ -1,0 +1,65 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+
+      # see https://docs.mongodb.com/mongoid/current/tutorials/mongoid-installation/ for supported versions
+      matrix:
+        ruby_version: ['3.0', '2.7', '2.6', '2.5']
+        gemfile:
+          - gemfiles/mongoid_73.gemfile
+          - gemfiles/mongoid_72.gemfile
+          - gemfiles/mongoid_71.gemfile
+          - gemfiles/mongoid_70.gemfile
+          - gemfiles/mongoid_64.gemfile
+
+        exclude:
+          - ruby_version: '3.0'
+            gemfile: gemfiles/mongoid_70.gemfile
+          - ruby_version: '3.0'
+            gemfile: gemfiles/mongoid_64.gemfile
+          - ruby_version: '2.7'
+            gemfile: gemfiles/mongoid_64.gemfile
+
+        include:
+          - ruby_version: '2.5'
+            gemfile: gemfiles/mongoid_63.gemfile
+          - ruby_version: '2.5'
+            gemfile: gemfiles/mongoid_62.gemfile
+          - ruby_version: '2.4'
+            gemfile: gemfiles/mongoid_61.gemfile
+          - ruby_version: '2.3'
+            gemfile: gemfiles/mongoid_60.gemfile
+          - ruby_version: '2.3'
+            gemfile: gemfiles/mongoid_54.gemfile
+          - ruby_version: '2.2'
+            gemfile: gemfiles/mongoid_52.gemfile
+          - ruby_version: '2.2'
+            gemfile: gemfiles/mongoid_51.gemfile
+          - ruby_version: '2.1'
+            gemfile: gemfiles/mongoid_50.gemfile
+          - ruby_version: '2.1'
+            gemfile: gemfiles/mongoid_40.gemfile
+
+
+    runs-on: ubuntu-18.04
+
+    env:
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: true
+          bundler: latest
+        continue-on-error: ${{ matrix.allow_failures == 'true' }}
+
+      - run: bundle exec rake
+        continue-on-error: ${{ matrix.allow_failures == 'true' }}
