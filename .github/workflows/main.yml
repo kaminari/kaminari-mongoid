@@ -36,6 +36,7 @@ jobs:
             gemfile: gemfiles/mongoid_60.gemfile
           - ruby_version: '2.3'
             gemfile: gemfiles/mongoid_54.gemfile
+            bundler_version: '1'
           - ruby_version: '2.2'
             gemfile: gemfiles/mongoid_52.gemfile
           - ruby_version: '2.2'
@@ -58,7 +59,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: true
-          bundler: latest
+          bundler: ${{ matrix.bundler_version || 'latest' }}
         continue-on-error: ${{ matrix.allow_failures == 'true' }}
 
       - uses: supercharge/mongodb-github-action@1.7.0
