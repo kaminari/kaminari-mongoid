@@ -9,6 +9,7 @@ gem 'kaminari-core', github: 'kaminari/kaminari'
 gem 'kaminari-actionview', github: 'kaminari/kaminari'
 
 gem 'railties', '~> 6.1'
+gem 'selenium-webdriver'
 gem 'mongoid', '~> 7.1.0'
 
 gem 'mime-types'
