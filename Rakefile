@@ -5,7 +5,7 @@ require 'rake/testtask'
 Rake::TestTask.new do |t|
   t.libs << 'test'
   t.pattern = "{test,#{File.join(Gem.loaded_specs['kaminari-core'].gem_dir, 'test')}}/**/*_test.rb"
-  t.warning = true
+  t.warning = false
   t.verbose = true
 end
 
