@@ -24,6 +24,8 @@ module Kaminari
           unpage.size
         elsif options[:max_scan] && options[:max_scan] < size
           options[:max_scan]
+        elsif max_pages && (max_pages * limit_value < size)
+          max_pages * limit_value
         else
           size
         end
