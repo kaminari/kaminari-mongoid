@@ -5,9 +5,12 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in kaminari-mongoid.gemspec
 gemspec
 
-unless ENV['CI']
+if ENV['CI']
   gem 'kaminari-core', github: 'kaminari/kaminari'
   gem 'kaminari-actionview', github: 'kaminari/kaminari'
+else
+  gem 'kaminari-core', path: '../kaminari'
+  gem 'kaminari-actionview', path: '../kaminari'
 end
 
 
