@@ -10,51 +10,45 @@ jobs:
       # see https://docs.mongodb.com/mongoid/current/tutorials/mongoid-installation/ for supported versions
       matrix:
         ruby_version: ['3.1', '3.0', '2.7', '2.6', '2.5']
-        gemfile:
-          - gemfiles/mongoid_73.gemfile
-          - gemfiles/mongoid_72.gemfile
-          - gemfiles/mongoid_71.gemfile
-          - gemfiles/mongoid_70.gemfile
-          - gemfiles/mongoid_64.gemfile
+        mongoid_version: ['7.3', '7.2', '7.1', '7.0', '6.4']
 
         exclude:
           - ruby_version: '3.1'
-            gemfile: gemfiles/mongoid_70.gemfile
+            mongoid_version: '7.0'
           - ruby_version: '3.1'
-            gemfile: gemfiles/mongoid_64.gemfile
+            mongoid_version: '6.4'
           - ruby_version: '3.0'
-            gemfile: gemfiles/mongoid_70.gemfile
+            mongoid_version: '7.0'
           - ruby_version: '3.0'
-            gemfile: gemfiles/mongoid_64.gemfile
+            mongoid_version: '6.4'
           - ruby_version: '2.7'
-            gemfile: gemfiles/mongoid_64.gemfile
+            mongoid_version: '6.4'
 
         include:
           - ruby_version: '2.5'
-            gemfile: gemfiles/mongoid_63.gemfile
+            mongoid_version: '6.3'
           - ruby_version: '2.5'
-            gemfile: gemfiles/mongoid_62.gemfile
+            mongoid_version: '6.2'
           - ruby_version: '2.4'
-            gemfile: gemfiles/mongoid_61.gemfile
+            mongoid_version: '6.1'
           - ruby_version: '2.3'
-            gemfile: gemfiles/mongoid_60.gemfile
+            mongoid_version: '6.0'
           - ruby_version: '2.3'
-            gemfile: gemfiles/mongoid_54.gemfile
+            mongoid_version: '5.4'
             bundler_version: '1'
           - ruby_version: '2.2'
-            gemfile: gemfiles/mongoid_52.gemfile
+            mongoid_version: '5.2'
           - ruby_version: '2.2'
-            gemfile: gemfiles/mongoid_51.gemfile
+            mongoid_version: '5.1'
           - ruby_version: '2.1'
-            gemfile: gemfiles/mongoid_50.gemfile
+            mongoid_version: '5.0'
           - ruby_version: '2.1'
-            gemfile: gemfiles/mongoid_40.gemfile
-
-
-    runs-on: ubuntu-18.04
+            mongoid_version: '4.0'
 
     env:
-      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+      MONGOID_VERSION: ${{ matrix.mongoid_version }}
+
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
