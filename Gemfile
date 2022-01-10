@@ -32,6 +32,7 @@ elsif ENV['MONGOID_VERSION']
   end
 else
   gem 'mongoid'
+  gem 'railties'
 end
 
 gem 'selenium-webdriver'
