@@ -38,6 +38,14 @@ module Kaminari
           crit.options.delete :skip
         end
       end
+
+      def size
+        if Gem::Version.new(::Mongoid::VERSION) >= Gem::Version.new('7.2.0') && criteria.selector.empty?
+          unpage.estimated_count
+        else
+          super
+        end
+      end
     end
   end
 end
