@@ -73,7 +73,7 @@ jobs:
           bundler: ${{ matrix.bundler_version || 'latest' }}
         continue-on-error: ${{ matrix.allow_failures == 'true' }}
 
-      - uses: supercharge/mongodb-github-action@1.7.0
+      - uses: supercharge/mongodb-github-action@1.8.0
 
       - run: bundle exec rake
         continue-on-error: ${{ matrix.allow_failures == 'true' }}
