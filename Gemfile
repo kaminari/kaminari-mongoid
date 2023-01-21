@@ -22,7 +22,11 @@ elsif ENV['MONGOID_VERSION']
 
   mongoid_version = Gem::Version.new ENV['MONGOID_VERSION']
   if mongoid_version >= Gem::Version.new('7')
-    gem 'railties', '~> 6.1'
+    if RUBY_VERSION >= '2.5'
+      gem 'railties', '~> 6.1'
+    else
+      gem 'railties', '~> 5.2'
+    end
   elsif mongoid_version >= Gem::Version.new('6.2')
     gem 'railties', '~> 5.2'
   elsif mongoid_version >= Gem::Version.new('6')
