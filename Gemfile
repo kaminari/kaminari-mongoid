@@ -6,8 +6,8 @@ source 'https://rubygems.org'
 gemspec
 
 if ENV['CI']
-  gem 'kaminari-core', github: 'kaminari/kaminari'
-  gem 'kaminari-actionview', github: 'kaminari/kaminari'
+  gem 'kaminari-core', git: 'https://github.com/kaminari/kaminari'
+  gem 'kaminari-actionview', git: 'https://github.com/kaminari/kaminari'
 else
   gem 'kaminari-core', path: '../kaminari'
   gem 'kaminari-actionview', path: '../kaminari'
