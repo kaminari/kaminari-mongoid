@@ -6,4 +6,4 @@
 
 * Extracted from kaminari gem
 
-* Droped mongoid 3.0 and 3.1 support
+* Dropped mongoid 3.0 and 3.1 support
