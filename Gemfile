@@ -42,3 +42,5 @@ end
 gem 'selenium-webdriver'
 
 gem 'mime-types'
+
+gem 'loofah', RUBY_VERSION < '2.5' ? '< 2.21.0' : '>= 0'
