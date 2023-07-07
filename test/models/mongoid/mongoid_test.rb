@@ -11,6 +11,20 @@ class MongoidCriteriaMethodsTest < ActiveSupport::TestCase
       assert_equal 1, User.page.tap(&:total_count).where(salary: 1).total_count
     end
   end
+
+  sub_test_case '#without_count' do
+    setup do
+      5.times { User.with(database: 'without_count_db') { |u| u.create!(salary: 1) } }
+    end
+
+    test 'it should use default settings for last_page and out_of_range' do
+      users = User.max_scan(20).page(1).without_count
+
+      assert_instance_of Mongoid::Criteria, users
+      assert_equal false, users.last_page?
+      assert_equal false, users.out_of_range?
+    end
+  end
 end
 
 class MongoidExtensionTest < ActiveSupport::TestCase
